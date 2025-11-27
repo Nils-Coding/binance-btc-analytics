@@ -73,11 +73,8 @@ def save_klines_to_csv(klines: list, filename: str):
         for k in klines:
             writer.writerow(k)
 
-def download_1m_klines(symbol: str,
-                       start_dt: datetime,
-                       end_dt: datetime,
-                       output_csv: str):
-
+def download_1m_klines(symbol: str, start_dt: datetime, end_dt: datetime, output_csv: str):
+    
     interval = "1m"
 
     start_ms = to_milliseconds(start_dt)
@@ -97,11 +94,9 @@ def download_1m_klines(symbol: str,
     save_klines_to_csv(klines, output_csv)
     print(f"Daten gespeichert in: {output_csv}")
 
-    # Optional: Start/Ende der wirklich geladenen Daten anzeigen
     first_open = from_milliseconds(klines[0][0])
     last_open = from_milliseconds(klines[-1][0])
     print(f"Zeitraum der gespeicherten Daten: {first_open} bis {last_open}")
-
 
 if __name__ == "__main__":
     start = datetime(2024, 1, 1, 0, 0, 0, tzinfo=timezone.utc)
