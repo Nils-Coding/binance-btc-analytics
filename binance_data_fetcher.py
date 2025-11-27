@@ -17,10 +17,7 @@ def from_milliseconds(ms: int) -> datetime:
     return datetime.fromtimestamp(ms / 1000, tz=timezone.utc)
 
 
-def fetch_klines(symbol: str,
-                 interval: str,
-                 start_time_ms: int,
-                 end_time_ms: int) -> list:
+def fetch_klines(symbol: str, interval: str, start_time_ms: int, end_time_ms: int) -> list:
     all_klines = []
     current_start = start_time_ms
 
